@@ -1,0 +1,10 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/mnt/c/Users/Denis/Desktop/project/output",
+            "binaryPath": "/mnt/c/Users/Denis/Desktop/project/output/main",
+            "binaryArgs": []
+        }
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
+}
