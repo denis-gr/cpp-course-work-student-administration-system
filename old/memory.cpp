@@ -21,18 +21,18 @@ STUDENT createStudent(int id=0, std::string name="", std::string surname="",
 }
 
 
-STUDENTList createStudentList() {
-    STUDENTList answer = STUDENTList();
+StudentTList createStudentTList() {
+    StudentTList answer = StudentTList();
     answer.pnext = nullptr;
     answer.student = createStudent();
     return answer;
 }
 
-STUDENTList pushStudentList(STUDENTList list, STUDENT student) {
+StudentTList pushStudentTList(StudentTList list, STUDENT student) {
     if (list.pnext == nullptr && list.student.Id == 0) { //false student
         list.student = student;
     } else {
-        STUDENTList item = STUDENTList();
+        StudentTList item = StudentTList();
         item.pnext = nullptr;
         item.student = student;
         list.pnext = &item;
@@ -40,5 +40,7 @@ STUDENTList pushStudentList(STUDENTList list, STUDENT student) {
     };
     return list;
 }
+
+
 
 // Боже страшно, как тут появлятьюся и исщають структуры, когда нет явного выделения и освоожения памяти

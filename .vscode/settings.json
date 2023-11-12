@@ -4,6 +4,11 @@
             "cwd": "/mnt/c/Users/Denis/Desktop/project/output",
             "binaryPath": "/mnt/c/Users/Denis/Desktop/project/output/main",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/mnt/c/Users/Denis/Desktop/SUAI 2023-2024 1/ОП/КР/project/output",
+            "binaryPath": "/mnt/c/Users/Denis/Desktop/SUAI 2023-2024 1/ОП/КР/project/output/main",
+            "binaryArgs": []
         }
     ],
     "C_Cpp.errorSquiggles": "disabled",
@@ -74,6 +79,18 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "ios": "cpp",
+        "xfacet": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xlocinfo": "cpp",
+        "xlocnum": "cpp",
+        "xmemory": "cpp",
+        "xstddef": "cpp",
+        "xstring": "cpp",
+        "xtr1common": "cpp",
+        "xutility": "cpp",
+        "codecvt": "cpp"
     }
 }

@@ -5,6 +5,7 @@
 STUDENT createStudent(int id, std::string, std::string, std::string, 
     std::string, MARKS, MARKS, MARKS, MARKS, MARKS);
 
-STUDENTList createStudentList();
+StudentTList createStudentTList();
 
-STUDENTList pushStudentList(STUDENTList, STUDENT);
+StudentTList pushStudentTList(StudentTList, STUDENT);
+
