@@ -3,6 +3,7 @@
 #include "struct.hpp"
 #include "console.hpp"
 #include "file.hpp"
+#include "utils.hpp"
 
 using namespace std;
 
@@ -12,18 +13,22 @@ using namespace std;
 int main() {
     StudentList student_list, student_list2;
 
-    try {
+    /*try {
         student_list2 = loadStudents();
     } catch (const char* error) {
         std::cout << "Возникла ошибка: " << error << std::endl;
     }
     
-    cout << student_list2.to_string();
+    cout << student_list2.to_string();*/
 
     student_list.push(
         Student("Григорьев", "Денис", "Викторович", "М211", 5, 5, 5, 5, 5));
     student_list.push(
         Student("Бочковой", "Илья", "Павлович", "М211", 2, 3, 3, 2, 3));
+    student_list.push(
+        Student("Дроздовский", "Иван", "Дмитриевич", "М211", 5, 3, 4, 3, 3));
+
+    sortByFullName(student_list);
 
 
     cout << student_list.to_string() << endl;
