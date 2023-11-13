@@ -17,6 +17,7 @@ int main() {
 
     cout << student_list.to_string() << endl;
 
+    inputStudentInterative();
 
     return 0;
 }

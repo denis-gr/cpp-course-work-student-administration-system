@@ -15,5 +15,6 @@ T inputScalar(T& value, const char prompt[] = "") {
 };
 
 Student inputStudent();
+Student inputStudentInterative();
 
 #endif
