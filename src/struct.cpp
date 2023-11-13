@@ -4,10 +4,9 @@
 #include "struct.hpp"
 
 Student::Student(std::string surname, std::string name, std::string patronymic, 
-    std::string group, int m1, int m2, int m3, int m4, int m5, int id) {
+    std::string group, int m1, int m2, int m3, int m4, int m5) {
     int marks[5] {m1, m2, m3, m4, m5};
     Student student;
-    Id = id;
     if (!isLenInRange(name, 50, 3)) throw "ValueError (Name)";
     Name = name;
     if (!isLenInRange(surname, 60, 3)) throw "ValueError (Surname)";
@@ -33,7 +32,24 @@ std::string Student::to_string() {
     for (int i: Marks) {
         str += std::to_string(i) + " ";
     };
-    str += "(" + std::to_string(Id) + ")";
     str += ">";
+    return str;
+};
+
+void StudentList::push(Student student) {
+    first = new StudentItem(student, first);
+};
+
+bool StudentList::is_empty() {
+    return first == nullptr;
+};
+
+std::string StudentList::to_string() {
+    std::string str = "";
+    StudentItem* current = first;
+    while (current != nullptr) {
+        str += (current->value).to_string() + "\n";
+        current = current->pnext;
+    };
     return str;
 };
