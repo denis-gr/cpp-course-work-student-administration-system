@@ -22,9 +22,9 @@ Student::Student(std::string surname, std::string name, std::string patronymic,
 };
 
 
-std::string Student::to_string() {
+std::string Student::to_string(bool is_list) {
     std::string str;
-    str += "<Студент ";
+    str += !is_list ? "<Студент " : "";
     str += std::string(Surname) + " ";
     str += std::string(Name) + " ";
     str += std::string(Patronymic) + " ";
@@ -32,7 +32,7 @@ std::string Student::to_string() {
     for (int i: Marks) {
         str += std::to_string(i) + " ";
     };
-    str += ">";
+    str += !is_list ? ">" : "";
     return str;
 };
 
@@ -40,16 +40,28 @@ void StudentList::push(Student student) {
     first = new StudentItem(student, first);
 };
 
+void StudentList::pop(int value) {
+    StudentItem* current = first;
+    for (int i = 0; i < value; i++) {
+        current = current->pnext;
+        if (current == nullptr) throw "IndexError";
+    };
+    current->pnext = current->pnext->pnext;
+};
+
 bool StudentList::is_empty() {
     return first == nullptr;
 };
 
-std::string StudentList::to_string() {
+std::string StudentList::to_string(bool is_list) {
     std::string str = "";
+    int i = 1;
     StudentItem* current = first;
     while (current != nullptr) {
-        str += (current->value).to_string() + "\n";
+        str += is_list ? std::to_string(i) + ".\t" : "";
+        str += (current->value).to_string(is_list) + "\n";
         current = current->pnext;
+        i++;
     };
     return str;
 };

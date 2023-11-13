@@ -15,7 +15,7 @@ struct Student {
         std::string patronymic="", std::string group="", int m1=0, int m2=0,
         int m3=0, int m4=0, int m5=0);
 
-    std::string to_string();
+    std::string to_string(bool=false);
 };
 
 struct StudentItem {
@@ -34,8 +34,9 @@ struct StudentList {
     StudentList() : first(nullptr) {};
 
     void push(Student student);
+    void pop(int value);
     bool is_empty();
-    std::string to_string();
+    std::string to_string(bool=false);
 };
 
 #endif

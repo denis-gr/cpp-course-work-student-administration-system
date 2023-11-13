@@ -36,6 +36,7 @@ Student inputStudentInterative() {
     while (flag) {
         try {
             Student student = inputStudent();
+            flag = true;
         } catch (const char* error) {
             std::cout << "Возникла ошибка: " << error << std::endl;
             inputScalar(answer, "Вы хотите попробовать ещё раз (Да/Нет): ");
