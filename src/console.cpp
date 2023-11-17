@@ -13,7 +13,7 @@ T inputScalar(T& value, const char prompt[] = "") {
 
 
 Student inputStudent() {
-    Student student;
+    Student student, answer;
     inputScalar(student.Surname, "Фамилия: ");
     inputScalar(student.Name, "Имя: ");
     inputScalar(student.Patronymic, "Отчество: ");
@@ -23,9 +23,10 @@ Student inputStudent() {
     inputScalar(student.Marks[2], "Третья оценка: ");
     inputScalar(student.Marks[3], "Четверая оценка: ");
     inputScalar(student.Marks[4], "Пятая оценка: ");
-    return Student(student.Surname, student.Name, student.Patronymic,
+    answer =  Student(student.Surname, student.Name, student.Patronymic,
         student.Group, student.Marks[0], student.Marks[1], student.Marks[2],
         student.Marks[3], student.Marks[4]);
+    return answer;
 };
 
 
@@ -35,8 +36,8 @@ Student inputStudentInterative() {
     std::string answer;
     while (flag) {
         try {
-            Student student = inputStudent();
-            flag = true;
+            student = inputStudent();
+            flag = false;
         } catch (const char* error) {
             std::cout << "Возникла ошибка: " << error << std::endl;
             inputScalar(answer, "Вы хотите попробовать ещё раз (Да/Нет): ");
