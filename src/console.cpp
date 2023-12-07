@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "struct.hpp"
+#include "check.hpp"
 
 template <typename T>
 T inputScalar(T& value, const char prompt[] = "") {
@@ -15,14 +16,21 @@ T inputScalar(T& value, const char prompt[] = "") {
 Student inputStudent() {
     Student student, answer;
     inputScalar(student.Surname, "Фамилия: ");
-    inputScalar(student.Name, "Имя: ");
-    inputScalar(student.Patronymic, "Отчество: ");
+    if (!isLenInRange(student.Surname, 60, 3)) throw "ValueError (Surname)";
+    inputScalar(student.Name, "Первая буква имени: ");
+    if (!isLenInRange(student.Name, 2, 1)) throw "ValueError (Name)";
+    inputScalar(student.Patronymic, "Первая буква отчетва: ");
+    if (!isLenInRange(student.Patronymic, 2, 1)) throw "ValueError (Patronymic)";
     inputScalar(student.Group, "Группа: ");
+    if (!isLenInRange(student.Group, 5, 4)) throw "ValueError (Group)";
     inputScalar(student.Marks[0], "Первая оценка: ");
     inputScalar(student.Marks[1], "Вторая оценка: ");
     inputScalar(student.Marks[2], "Третья оценка: ");
     inputScalar(student.Marks[3], "Четверая оценка: ");
     inputScalar(student.Marks[4], "Пятая оценка: ");
+    for (int i = 0; i < 5; i++) {
+        if (!isInRange(student.Marks[i], 5, 1)) throw "ValueError (Mark)";
+    };
     answer =  Student(student.Surname, student.Name, student.Patronymic,
         student.Group, student.Marks[0], student.Marks[1], student.Marks[2],
         student.Marks[3], student.Marks[4]);
@@ -41,8 +49,14 @@ Student inputStudentInterative() {
         } catch (const char* error) {
             std::cout << "Возникла ошибка: " << error << std::endl;
             inputScalar(answer, "Вы хотите попробовать ещё раз (Да/Нет): ");
-            if (answer.find("Нет") != std::string::npos) flag = false;
+            if (answer.find("Нет") != std::string::npos) {
+                flag = true;
+                throw "ValueError (Student, user cansel)";
+            } 
         }
+    };
+    if (flag) {
+        throw "ValueError (Student)";
     }
     return student;
 };

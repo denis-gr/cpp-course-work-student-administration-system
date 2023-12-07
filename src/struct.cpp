@@ -7,11 +7,11 @@ Student::Student(std::string surname, std::string name, std::string patronymic,
     std::string group, int m1, int m2, int m3, int m4, int m5) {
     int marks[5] {m1, m2, m3, m4, m5};
     Student student;
-    if (!isLenInRange(name, 50, 3)) throw "ValueError (Name)";
+    if (!isLenInRange(name, 2, 1)) throw "ValueError (Name)";
     Name = name;
     if (!isLenInRange(surname, 60, 3)) throw "ValueError (Surname)";
     Surname = surname;
-    if (!isLenInRange(patronymic, 50, 3)) throw "ValueError (Patronymic)";
+    if (!isLenInRange(patronymic, 2, 1)) throw "ValueError (Patronymic)";
     Patronymic = patronymic;
     if (!isLenInRange(group, 5, 4)) throw "ValueError (Group)";
     Group = group;
@@ -40,13 +40,23 @@ void StudentList::push(Student student) {
     first = new StudentItem(student, first);
 };
 
+//+1 1-3, 2-e, 3-e
+//+0 1-2, 2-3, 3-e
+//-1 1-2, 2-2, 3-3
+//-2 1-2, 2-2, 3-3
+
+#include <iostream>
+
 void StudentList::pop(int value) {
-    StudentItem* current = first;
-    for (int i = 0; i < value; i++) {
-        current = current->pnext;
-        if (current == nullptr) throw "IndexError";
+    if (value == 0) {
+        first = first->pnext; 
+        return;    
     };
-    current->pnext = current->pnext->pnext;
+    StudentItem* current = first;
+    for (int i = 0; i < value - 1; i++) {
+        current = current->pnext;
+    };
+    current->pnext = (current->pnext)->pnext;
 };
 
 bool StudentList::is_empty() {

@@ -35,7 +35,7 @@ void viewMenu(StudentList& student_list) {
         } else if (numMenu == 1) {
             return;
         } else {
-            throw INCORRECT_COMAND_MESSAGE;
+            std::cout<< INCORRECT_COMAND_MESSAGE << std::endl;
         };
     } 
 };
@@ -43,17 +43,20 @@ void viewMenu(StudentList& student_list) {
 void mainMenu(StudentList& student_list) {
     while (true) {
         int numMenu = 4;
-        inputScalar(numMenu, HELLO_MESSAGE);
+        inputScalar(numMenu, MENU_MESSAGE);
         if (numMenu == 1) {
             viewMenu(student_list);
         } else if (numMenu == 2) {
-            student_list.push(inputStudentInterative());
+            try {
+                student_list.push(inputStudentInterative());
+            } catch(const char* error) {};
+            std::cout << std::endl;
         } else if (numMenu == 3) {
             student_list = dellMenu(student_list);
         } else if (numMenu == 4) {
             return;
         } else {
-            throw INCORRECT_COMAND_MESSAGE;
+            std::cout<< INCORRECT_COMAND_MESSAGE << std::endl;
         };
     }
 };
