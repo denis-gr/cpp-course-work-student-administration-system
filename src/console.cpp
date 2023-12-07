@@ -23,7 +23,7 @@ T inputScalar(T& value, const char prompt[] = "") {
 Student inputStudent() {
     Student student, answer;
     inputScalar(student.Surname, "Фамилия: ");
-    if (!isLenInRange(student.Surname, 60, 3)) throw "ValueError (Surname)";
+    if (!isLenInRange(student.Surname, 60, 2)) throw "ValueError (Surname)";
     inputScalar(student.Name, "Первая буква имени: ");
     if (!isLenInRange(student.Name, 2, 1)) throw "ValueError (Name)";
     inputScalar(student.Patronymic, "Первая буква отчетва: ");
