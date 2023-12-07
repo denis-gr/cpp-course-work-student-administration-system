@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "struct.hpp"
 #include "check.hpp"
@@ -9,6 +10,12 @@ T inputScalar(T& value, const char prompt[] = "") {
         std::cout << prompt;
     };
     std::cin >> value;
+    while (std::cin.fail() || std::cin.rdbuf()->in_avail() > 1) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Error!!! Retry input: ";
+        std::cin >> value;
+    };
     return value;
 };
 
