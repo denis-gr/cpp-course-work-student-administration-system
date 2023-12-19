@@ -8,6 +8,7 @@
 using namespace std;
 
 int main() {
+    std::setlocale(LC_ALL, "RUSSIAN");
     StudentList student_list;
 
     try {

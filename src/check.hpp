@@ -13,4 +13,7 @@ bool isLenInRange(T value, int max, int min) {
     return isInRange(int(std::string(value).size()), max, min);
 };
 
+std::string normalize_group(const std::string&);
+bool is_group(const std::string&);
+
 #endif

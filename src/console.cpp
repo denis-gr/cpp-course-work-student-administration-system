@@ -29,7 +29,7 @@ Student inputStudent() {
     inputScalar(student.Patronymic, "Первая буква отчетва: ");
     if (!isLenInRange(student.Patronymic, 2, 1)) throw "ValueError (Patronymic)";
     inputScalar(student.Group, "Группа: ");
-    if (!isLenInRange(student.Group, 5, 4)) throw "ValueError (Group)";
+    if (!is_group(student.Group)) throw "ValueError (Group)";
     inputScalar(student.Marks[0], "Первая оценка: ");
     inputScalar(student.Marks[1], "Вторая оценка: ");
     inputScalar(student.Marks[2], "Третья оценка: ");
